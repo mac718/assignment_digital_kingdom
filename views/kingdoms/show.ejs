@@ -1,0 +1,9 @@
+<h1><%= kingdom %></h1>
+
+<h2>Castles</h2>
+<% for (var key in JSON.parse(result)) { %>
+  <h3><%= key %></h3>
+    <ul>
+      <li>Number of Lieges: <%= JSON.parse(result)[key] %></li>
+    </ul>
+<% } %>

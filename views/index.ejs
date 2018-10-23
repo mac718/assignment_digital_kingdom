@@ -1,3 +1,24 @@
 <h1>Kingdoms</h1>
 
-<pre><%= result %></pre>
+<% for (var key in result) { %>
+  <a href="/kingdoms/<%=key%>"><h2><%= key %></h2></a>
+    <ul>
+      <li>King: <%= result[key].king %></li>
+      <li>Queen: <%= result[key].queen %></li>
+      <li>Number of Castles: <%= result[key].castleCount %></li>
+    </ul>
+<% } %>
+
+<h3>Add A New Kingdom</h3>
+<div>
+  <form action="/kingdom" method="post">
+    <label for="name">Kingdom Name:</label>
+    <input type="text" name="name">
+    <label for="king">King's Name:</label>
+    <input type="text" name="king">
+    <label for="queen">Queen's Name:</label>
+    <input type="text" name="queen">
+
+    <input type="submit" name="submit">
+  </form>
+</div>

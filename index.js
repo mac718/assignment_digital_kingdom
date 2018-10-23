@@ -3,10 +3,13 @@ const app = express();
 const fs = require('fs');
 const expressLayouts = require('express-ejs-layouts');
 const index = require('./routes/index');
+const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 
 app.use(expressLayouts);
+
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static(`${__dirname}/public`))
 
