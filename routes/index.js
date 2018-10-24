@@ -21,4 +21,13 @@ router.get('/kingdoms/:kingdom', (req, res) => {
     })    
 })
 
+router.post('/kingdom', (req, res) => {
+  let name = req.body.name;
+  let king = req.body.king;
+  let queen = req.body.queen;
+  kingdom.addKingdom(name, king, queen);
+  //console.log(req.body.name);
+  res.redirect('back');
+})
+
 module.exports = router;
