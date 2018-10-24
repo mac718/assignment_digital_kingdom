@@ -22,7 +22,8 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "express-ejs-layouts": "^2.5.0"
+    "express-ejs-layouts": "^2.5.0",
+    "npm": "^6.4.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
