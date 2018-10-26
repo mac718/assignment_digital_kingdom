@@ -2,8 +2,20 @@
 
 <h2>Castles</h2>
 <% for (var key in JSON.parse(result)) { %>
-  <h3><%= key %></h3>
+  <a href="/castles/<%= key %>"><h3><%= key %></h3></a>
     <ul>
       <li>Number of Lieges: <%= JSON.parse(result)[key] %></li>
     </ul>
 <% } %>
+
+<h3>Add A New Castle</h3>
+<div>
+  <form action="/castle" method="post">
+    <label for="castleName">Castle Name:</label>
+    <input type="text" name="castleName" id="castleName">
+    <input type="hidden" name="kingdomId" value=<%=id%>>
+    <input type="hidden" name="kingdomName" value=<%=kingdom%>>
+
+    <input type="submit" name="submit">
+  </form>
+</div>
