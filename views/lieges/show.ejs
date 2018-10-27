@@ -1,0 +1,20 @@
+<h1><%= liege %></h1>
+
+<h2>Vassals</h2>
+<% result.forEach( vassal => { %>
+  <ul>
+    <li><%= vassal %></li>
+  </ul>
+<% }) %>
+
+<h3>Add A New Liege</h3>
+<div>
+  <form action="/liege" method="post">
+    <label for="liegeName">Name:</label>
+    <input type="text" name="liegeName" id="liegeName">
+    <input type="hidden" name="liegeId" value= <%= id %>>
+    <input type="hidden" name="liegeName" value= <%= liege %>>
+
+    <input type="submit" name="submit">
+  </form>
+</div>

@@ -1,21 +1,20 @@
 <h1><%= castle %></h1>
 
 <h2>Lieges</h2>
-<% for (var key in JSON.parse(result)) { %>
-  <h3><%= key %></h3>
+<% for (var key in result) { %>
+  <a href="/lieges/<%= key %>/<%= id %>"><h3><%= key %></h3></a>
     <ul>
-      <li>Number of Vassals: <%= JSON.parse(result)[key] %></li>
+      <li>Number of Vassals: <%= result[key] %></li>
     </ul>
 <% } %>
 
 <h3>Add A New Liege</h3>
 <div>
   <form action="/castle" method="post">
-    <label for="castleName">Castle Name:</label>
-    <input type="text" name="castleName" id="castleName">
-
-    <label for="kingdomName">Kingdom Name:</label>
-    <input type="text" name="kingdomName" id="kingdomName">
+    <label for="castleName">Name:</label>
+    <input type="text" name="liegeName" id="liegeName">
+    <input type="hidden" name="castleId" value=<%= id %>>
+    <input type="hidden" name="castleName" value=<%= castle %>>
 
     <input type="submit" name="submit">
   </form>

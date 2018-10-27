@@ -14,17 +14,25 @@ router.get('/', (req, res) => {
 router.get('/kingdoms/:kingdom/:id', (req, res) => {
   kingdom.getCastleInfo(req.params.kingdom)
     .then(result => {
-      //result = JSON.parse(result);
-      console.log(result)
+      result = JSON.parse(result);
+      //console.log(result)
       res.render('kingdoms/show', {result: result, kingdom: req.params.kingdom, id: req.params.id});
     })    
 })
 
-router.get('/castles/:castle', (req, res) => {
+router.get('/castles/:castle/:id', (req, res) => {
   kingdom.getLiegeInfo(req.params.castle)
     .then(result => {
+      result = JSON.parse(result);
+      res.render('castles/show', {result: result, castle: req.params.castle, id: req.params.id});
+    })    
+})
+
+router.get('/lieges/:liege/:id', (req, res) => {
+  kingdom.getVassalInfo(req.params.liege)
+    .then(result => {
       //result = JSON.parse(result);
-      res.render('castles/show', {result: result, castle: req.params.castle});
+      res.render('lieges/show', {result: result, liege: req.params.liege, id: req.params.id});
     })    
 })
 
@@ -36,7 +44,6 @@ router.post('/kingdom', (req, res) => {
     .then((result) => {
       res.redirect('/');
     });
-  //console.log(req.body.name);
 })
 
 router.post('/castle', (req, res) => {
