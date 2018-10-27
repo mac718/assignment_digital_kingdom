@@ -7,11 +7,11 @@
   </ul>
 <% }) %>
 
-<h3>Add A New Liege</h3>
+<h3>Add A New Vassal</h3>
 <div>
-  <form action="/liege" method="post">
+  <form action="/vassal" method="post">
     <label for="liegeName">Name:</label>
-    <input type="text" name="liegeName" id="liegeName">
+    <input type="text" name="vassalName" id="liegeName">
     <input type="hidden" name="liegeId" value= <%= id %>>
     <input type="hidden" name="liegeName" value= <%= liege %>>
 

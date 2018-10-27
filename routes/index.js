@@ -50,8 +50,27 @@ router.post('/castle', (req, res) => {
   let name = req.body.castleName;
   let kingdomId = req.body.kingdomId;
   let kingdomName = req.body.kingdomName;
-  console.log(kingdomId);
   kingdom.addCastle(name, kingdomId)
+    .then(() => {
+      res.redirect('back');
+    });
+})
+
+router.post('/liege', (req, res) => {
+  let name = req.body.liegeName;
+  let castleId = req.body.castleId;
+  let castleName = req.body.castleName;
+  kingdom.addLiege(name, castleId)
+    .then(() => {
+      res.redirect('back');
+    });
+})
+
+router.post('/vassal', (req, res) => {
+  let name = req.body.vassalName;
+  let liegeId = req.body.liegeId;
+  let liegeName = req.body.liegeName;
+  kingdom.addVassal(name, liegeId)
     .then(() => {
       res.redirect('back');
     });
